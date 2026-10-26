@@ -3,20 +3,16 @@
 
 ---
 
-## Artifact 1: Designing a Domain-Specific Educational AI Chatbot
-**Category:** Artificial Intelligence / Product Development
-**Date:** October 2026
+## Artifact 1: Educational AI Chatbot Configuration
 
-### Project Overview
-As part of an applied Artificial Intelligence lab, I architected a specialized educational chatbot. The objective was to design a tightly constrained, persona-driven AI assistant capable of guiding users through workflows without hallucinating or breaking character, a common challenge in generative AI deployments.
+*
+<img width="1057" height="754" alt="Screenshot 2026-10-25 at 9 56 27 PM" src="https://github.com/user-attachments/assets/bdf45e26-6759-4d92-89b9-3abdd57a53a8" />
+<img width="1074" height="767" alt="Screenshot 2026-10-25 at 9 55 54 PM" src="https://github.com/user-attachments/assets/0b9c2bb5-92e2-4666-add6-f794e7bb130f" />
+<img width="1062" height="762" alt="Screenshot 2026-10-25 at 9 55 32 PM" src="https://github.com/user-attachments/assets/af8b027f-a95f-4871-a4ef-d181e7330c31" />
+*
 
-### Implementation & Prompt Engineering
-Utilizing the Mizou platform, the focus was placed heavily on AI orchestration and system-level prompt engineering. Key configuration steps included:
-
-* **System Instructions & Persona:** Engineered strict system prompts to define the bot’s behavior, tone, and appropriate grade level.
-* **Boundary Setting (Rules):** Established clear operational boundaries to ensure the chatbot remained on-topic and provided structured guidance rather than directly outputting answers.
-* **Knowledge Integration:** Uploaded domain-specific knowledge files to ground the AI’s responses using Retrieval-Augmented Generation (RAG) principles.
-* **User Experience:** Configured the Welcome Message and Discovery prompts to immediately orient the user and reduce initial interaction friction.
-
-### Professional Application
-This implementation reinforces the critical nature of structured prompt architecture. In developing enterprise software and internal platforms, integrating AI requires these exact guardrails. Bridging the gap between raw language models and deployment-ready products is essential for modern software infrastructure.
+*   **Title:** Domain-Specific Educational AI Chatbot
+*   **Objective:** To design a tightly constrained, persona-driven AI assistant capable of guiding users through educational workflows without hallucinating or breaking character.
+*   **Process:** I engineered strict system instructions to define the bot’s behavior and tone. I then established clear boundary rules to ensure the chatbot provided structured guidance rather than direct answers, and uploaded domain-specific knowledge files to ground the responses using Retrieval-Augmented Generation (RAG). 
+*   **Tools:** Mizou AI Platform, Custom Prompt Engineering, System Rule Configuration, RAG Knowledge Files.
+*   **Value Proposition:** This artifact demonstrates my ability to bridge the gap between raw language models and deployment-ready software. It shows I can architect, constrain, and deploy user-facing AI tools safely for enterprise or educational environments.
