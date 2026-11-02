@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Guni | AI & ML Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Typography */
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 { color: var(--text-main); margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        
+        /* Container & Layout */
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 4rem 0; border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
+        .hero p.title { font-size: 1.25rem; color: var(--text-muted); font-weight: 400; margin-top: 0; }
+        .skills-container { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .skill-tag { background: #e0e7ff; color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+
+        /* Bio & Value Prop Section */
+        .bio-section { padding: 3rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border-bottom: 1px solid var(--border); }
+        .bio-box { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        
+        /* Artifacts Section */
+        .artifacts-header { text-align: center; margin: 4rem 0 2rem 0; }
+        .artifact-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            margin-bottom: 3rem; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .artifact-card:hover { transform: translateY(-5px); }
+        
+        /* Image Grid for Artifacts */
+        .artifact-images { display: flex; gap: 1rem; padding: 1.5rem; background: #f1f5f9; overflow-x: auto; border-bottom: 1px solid var(--border); }
+        .artifact-images img { max-height: 350px; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        
+        /* Artifact Content */
+        .artifact-content { padding: 2rem; }
+        .artifact-content h3 { font-size: 1.75rem; color: var(--accent); margin-top: 0; }
+        .rubric-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+        @media(min-width: 768px) { .rubric-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .rubric-section h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); border-bottom: 2px solid var(--accent); padding-bottom: 0.25rem; margin-bottom: 0.75rem; }
+        .rubric-section ul { padding-left: 1.25rem; margin: 0; font-size: 0.95rem; }
+        .rubric-section p { margin: 0; font-size: 0.95rem; }
+        
+        /* Download Button */
+        .btn-download { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; transition: background 0.2s; }
+        .btn-download:hover { background: #1d4ed8; color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Rahul Guni</h1>
+        <p class="title">Software Engineer & Infrastructure Architect</p>
+        <div class="skills-container">
+            <span class="skill-tag">Java (Spring Boot)</span>
+            <span class="skill-tag">Python (PyTorch)</span>
+            <span class="skill-tag">TypeScript / Angular</span>
+            <span class="skill-tag">AWS Infrastructure</span>
+            <span class="skill-tag">AI/ML Orchestration</span>
+        </div>
+    </header>
+
+    <!-- Bio & Value Proposition -->
+    <section class="bio-section">
+        <div class="bio-box">
+            <h2>Professional Bio</h2>
+            <p>I am a Software Engineer and Infrastructure Architect specializing in building scalable, full-stack enterprise applications. Currently pursuing a Master of Science with a specialization in AI and Machine Learning, I am passionate about bridging the gap between raw data science and production-ready software infrastructure.</p>
+        </div>
+        <div class="bio-box">
+            <h2>Value Proposition & Audience</h2>
+            <p><strong>Personal Value Proposition:</strong> I offer the unique ability to not only understand complex Machine Learning models but also architect the distributed systems required to deploy them at enterprise scale.</p>
+            <p><strong>Target Audience:</strong> Engineering managers, technical recruiters, and peer developers seeking versatile architects capable of managing end-to-end AI product lifecycles.</p>
+        </div>
+    </section>
+
+    <!-- Artifacts -->
+    <div class="artifacts-header">
+        <h2>Portfolio Artifacts</h2>
+    </div>
+
+    <!-- ARTIFACT 1: Chatbot -->
+    <article class="artifact-card">
+        <div class="artifact-images">
+            <img src="chatbot-1.png">
+            <img src="chatbot-2.png">
+            <img src="chatbot-3.png">
+        </div>
+        <div class="artifact-content">
+            <h3>Domain-Specific Educational AI Chatbot</h3>
+            <p><strong>Introduction:</strong> This artifact is a specialized educational chatbot developed as part of an applied AI lab focusing on prompt engineering and LLM constraints.</p>
+            
+            <div class="rubric-grid">
+                <div class="rubric-section">
+                    <h4>Description & Process</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> Design a tightly constrained, persona-driven AI assistant guiding users without hallucinating.</li>
+                        <li><strong>Process:</strong> Created individually. Engineered strict system instructions, established operational boundaries, and uploaded domain-specific files for RAG grounding.</li>
+                        <li><strong>Tools:</strong> Mizou AI Platform, Custom Prompt Engineering, RAG Knowledge Files.</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Value Proposition</h4>
+                    <ul>
+                        <li><strong>Unique Value:</strong> Showcases ability to bridge raw LLMs and deployment-ready software via structured prompt architecture.</li>
+                        <li><strong>Relevance:</strong> Proves I can safely architect, constrain, and deploy user-facing AI tools for enterprise environments.</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Audience Customization</h4>
+                    <ul>
+                        <li><strong>Adaptations:</strong> Highlighted system constraints and guardrails over raw conversational output.</li>
+                        <li><strong>Relevance:</strong> Speaks to engineering managers prioritizing safety and predictability when integrating generative AI.</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Reflection & Feedback</h4>
+                    <ul>
+                        <li><strong>Significance:</strong> Translates academic concepts into a tangible product controlling LLMs.</li>
+                        <li><strong>Lessons Learned:</strong> Strict boundary setting is as important as base model selection.</li>
+                        <li><strong>Feedback & Revisions:</strong> Peer feedback noted the bot gave direct answers too easily. Revised boundary rules to force a Socratic teaching method.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rubric-section" style="margin-top: 1.5rem;">
+                <h4>References</h4>
+                <p>Mizou Platform Documentation | "Prompt Engineering Guidelines" (OpenAI).</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- ARTIFACT 2: ML vs DL -->
+    <article class="artifact-card">
+        <div class="artifact-content">
+            <h3>ML vs. DL Architecture: Talent Portal Case Study</h3>
+            
+            <a href="ML_vs_DL_Case_Study.docx" class="btn-download" download>📥 Download the Full Case Study (.docx)</a>
+            
+            <p><strong>Introduction:</strong> An architectural case study evaluating the necessary implementation of Deep Learning versus traditional Machine Learning within the MyAquent talent portal[cite: 3].</p>
+            
+            <div class="rubric-grid">
+                <div class="rubric-section">
+                    <h4>Description & Process</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> To evaluate and determine the optimal AI architectures for distinct enterprise features, specifically a multimodal portfolio search pipeline and a customer churn prediction module[cite: 2, 3].</li>
+                        <li><strong>Process:</strong> Created individually. I analyzed the application of Convolutional Neural Networks (CNNs) to process raw pixels and natural language for image recognition[cite: 2, 3]. I then contrasted this with the application of Support Vector Machines (SVM) for predictive analytics on structured, tabular user data[cite: 2, 3].</li>
+                        <li><strong>Tools:</strong> Convolutional Neural Networks (CNNs), Dense Vector Embeddings, Support Vector Machines (SVM), Python, Predictive Analytics[cite: 2, 3].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Value Proposition</h4>
+                    <ul>
+                        <li><strong>Unique Value:</strong> Demonstrates the strategic ability to choose the correct AI tool for the job, preventing computationally wasteful deployments[cite: 2, 3].</li>
+                        <li><strong>Relevance:</strong> Proves to engineering managers that I make pragmatic, data-driven architecture decisions rather than blindly applying "black box" deep learning models to problems better suited for interpretable ML algorithms[cite: 2, 3].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Audience Customization</h4>
+                    <ul>
+                        <li><strong>Adaptations:</strong> Framed the academic case study as a high-level architectural decision document, focusing on scalability and computational efficiency[cite: 2].</li>
+                        <li><strong>Relevance:</strong> Appeals directly to Tech Leads and Principal Engineers who evaluate system design and infrastructure costs[cite: 2].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Reflection & Feedback</h4>
+                    <ul>
+                        <li><strong>Significance:</strong> Highlights my ability to evaluate data structure—whether raw, unstructured pixels or highly structured tabular data—to inform system architecture[cite: 2, 3].</li>
+                        <li><strong>Lessons Learned:</strong> Reinforced the critical need for model interpretability in business applications; using SVMs for churn prediction allows product managers to actually understand the model's weights and design actionable retention strategies[cite: 2, 3].</li>
+                        <li><strong>Feedback & Revisions:</strong> Peer feedback suggested clarifying why a simpler algorithm couldn't be used for the image search pipeline[cite: 2]. Expanded the analysis to explicitly state that traditional ML is unscalable for this feature due to the impossibility of manual feature engineering on raw images[cite: 2, 3].</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rubric-section" style="margin-top: 1.5rem;">
+                <h4>References</h4>
+                <p>"ML_vs_DL_Case_Study.docx" | Aquent LLC MyAquent Platform Architectural Overview[cite: 2, 3].</p>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+</body>
+</html>
