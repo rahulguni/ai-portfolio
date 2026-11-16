@@ -58,6 +58,19 @@
         .artifact-images { display: flex; gap: 1rem; padding: 1.5rem; background: #f1f5f9; overflow-x: auto; border-bottom: 1px solid var(--border); }
         .artifact-images img { max-height: 350px; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         
+        /* Embedded Interactive Artifact Container */
+        .artifact-embed-wrapper {
+            background: #050505;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .artifact-embed-wrapper iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+            display: block;
+        }
+
         /* Artifact Content */
         .artifact-content { padding: 2rem; }
         .artifact-content h3 { font-size: 1.75rem; color: var(--accent); margin-top: 0; }
@@ -68,7 +81,7 @@
         .rubric-section ul { padding-left: 1.25rem; margin: 0; font-size: 0.95rem; }
         .rubric-section p { margin: 0; font-size: 0.95rem; }
         
-        /* Download Button */
+        /* Download / Action Button */
         .btn-download { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; transition: background 0.2s; }
         .btn-download:hover { background: #1d4ed8; color: white; text-decoration: none; }
     </style>
@@ -111,9 +124,9 @@
     <!-- ARTIFACT 1: Chatbot -->
     <article class="artifact-card">
         <div class="artifact-images">
-            <img src="chatbot-1.png">
-            <img src="chatbot-2.png">
-            <img src="chatbot-3.png">
+            <img src="chatbot-1.png" alt="Chatbot interface screenshot 1">
+            <img src="chatbot-2.png" alt="Chatbot interface screenshot 2">
+            <img src="chatbot-3.png" alt="Chatbot interface screenshot 3">
         </div>
         <div class="artifact-content">
             <h3>Domain-Specific Educational AI Chatbot</h3>
@@ -165,43 +178,94 @@
             
             <a href="ML_vs_DL_Case_Study.docx" class="btn-download" download>📥 Download the Full Case Study (.docx)</a>
             
-            <p><strong>Introduction:</strong> An architectural case study evaluating the necessary implementation of Deep Learning versus traditional Machine Learning within the MyAquent talent portal[cite: 3].</p>
+            <p><strong>Introduction:</strong> An architectural case study evaluating the necessary implementation of Deep Learning versus traditional Machine Learning within the MyAquent talent portal.</p>
             
             <div class="rubric-grid">
                 <div class="rubric-section">
                     <h4>Description & Process</h4>
                     <ul>
-                        <li><strong>Objective:</strong> To evaluate and determine the optimal AI architectures for distinct enterprise features, specifically a multimodal portfolio search pipeline and a customer churn prediction module[cite: 2, 3].</li>
-                        <li><strong>Process:</strong> Created individually. I analyzed the application of Convolutional Neural Networks (CNNs) to process raw pixels and natural language for image recognition[cite: 2, 3]. I then contrasted this with the application of Support Vector Machines (SVM) for predictive analytics on structured, tabular user data[cite: 2, 3].</li>
-                        <li><strong>Tools:</strong> Convolutional Neural Networks (CNNs), Dense Vector Embeddings, Support Vector Machines (SVM), Python, Predictive Analytics[cite: 2, 3].</li>
+                        <li><strong>Objective:</strong> To evaluate and determine the optimal AI architectures for distinct enterprise features, specifically a multimodal portfolio search pipeline and a customer churn prediction module.</li>
+                        <li><strong>Process:</strong> Created individually. I analyzed the application of Convolutional Neural Networks (CNNs) to process raw pixels and natural language for image recognition. I then contrasted this with the application of Support Vector Machines (SVM) for predictive analytics on structured, tabular user data.</li>
+                        <li><strong>Tools:</strong> Convolutional Neural Networks (CNNs), Dense Vector Embeddings, Support Vector Machines (SVM), Python, Predictive Analytics.</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Value Proposition</h4>
                     <ul>
-                        <li><strong>Unique Value:</strong> Demonstrates the strategic ability to choose the correct AI tool for the job, preventing computationally wasteful deployments[cite: 2, 3].</li>
-                        <li><strong>Relevance:</strong> Proves to engineering managers that I make pragmatic, data-driven architecture decisions rather than blindly applying "black box" deep learning models to problems better suited for interpretable ML algorithms[cite: 2, 3].</li>
+                        <li><strong>Unique Value:</strong> Demonstrates the strategic ability to choose the correct AI tool for the job, preventing computationally wasteful deployments.</li>
+                        <li><strong>Relevance:</strong> Proves to engineering managers that I make pragmatic, data-driven architecture decisions rather than blindly applying "black box" deep learning models to problems better suited for interpretable ML algorithms.</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Audience Customization</h4>
                     <ul>
-                        <li><strong>Adaptations:</strong> Framed the academic case study as a high-level architectural decision document, focusing on scalability and computational efficiency[cite: 2].</li>
-                        <li><strong>Relevance:</strong> Appeals directly to Tech Leads and Principal Engineers who evaluate system design and infrastructure costs[cite: 2].</li>
+                        <li><strong>Adaptations:</strong> Framed the academic case study as a high-level architectural decision document, focusing on scalability and computational efficiency.</li>
+                        <li><strong>Relevance:</strong> Appeals directly to Tech Leads and Principal Engineers who evaluate system design and infrastructure costs.</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Reflection & Feedback</h4>
                     <ul>
-                        <li><strong>Significance:</strong> Highlights my ability to evaluate data structure—whether raw, unstructured pixels or highly structured tabular data—to inform system architecture[cite: 2, 3].</li>
-                        <li><strong>Lessons Learned:</strong> Reinforced the critical need for model interpretability in business applications; using SVMs for churn prediction allows product managers to actually understand the model's weights and design actionable retention strategies[cite: 2, 3].</li>
-                        <li><strong>Feedback & Revisions:</strong> Peer feedback suggested clarifying why a simpler algorithm couldn't be used for the image search pipeline[cite: 2]. Expanded the analysis to explicitly state that traditional ML is unscalable for this feature due to the impossibility of manual feature engineering on raw images[cite: 2, 3].</li>
+                        <li><strong>Significance:</strong> Highlights my ability to evaluate data structure—whether raw, unstructured pixels or highly structured tabular data—to inform system architecture.</li>
+                        <li><strong>Lessons Learned:</strong> Reinforced the critical need for model interpretability in business applications; using SVMs for churn prediction allows product managers to actually understand the model's weights and design actionable retention strategies.</li>
+                        <li><strong>Feedback & Revisions:</strong> Peer feedback suggested clarifying why a simpler algorithm couldn't be used for the image search pipeline. Expanded the analysis to explicitly state that traditional ML is unscalable for this feature due to the impossibility of manual feature engineering on raw images.</li>
                     </ul>
                 </div>
             </div>
             <div class="rubric-section" style="margin-top: 1.5rem;">
                 <h4>References</h4>
-                <p>"ML_vs_DL_Case_Study.docx" | Aquent LLC MyAquent Platform Architectural Overview[cite: 2, 3].</p>
+                <p>"ML_vs_DL_Case_Study.docx" | Aquent LLC MyAquent Platform Architectural Overview.</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- ARTIFACT 3: Interactive Evolution of AI Timeline -->
+    <article class="artifact-card">
+        <div class="artifact-embed-wrapper">
+            <iframe src="ai_timeline.html" title="The Evolution of Artificial Intelligence Interactive Timeline" loading="lazy"></iframe>
+        </div>
+        <div class="artifact-content">
+            <h3>Interactive Evolution of AI Timeline</h3>
+            
+            <a href="ai_timeline.html" class="btn-download" target="_blank" rel="noopener noreferrer">🚀 Launch Fullscreen Interactive Timeline</a>
+            
+            <p><strong>Introduction:</strong> An interactive, web-based visualization mapping the foundational milestones, hardware catalysts, AI winters, and architectural breakthroughs from the 1950 Turing Test to modern Generative AI[cite: 1].</p>
+            
+            <div class="rubric-grid">
+                <div class="rubric-section">
+                    <h4>Description & Process</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> Synthesize over seven decades of Artificial Intelligence history into an engaging, self-guided technical visualization highlighting how compute infrastructure enabled modern deep learning[cite: 1].</li>
+                        <li><strong>Process:</strong> Created individually. Curated 11 pivotal industry milestones—categorizing root causes, economic impacts, and hardware catalysts—and engineered a custom responsive web application featuring Intersection Observer scroll animations and accordion state transitions[cite: 1].</li>
+                        <li><strong>Tools:</strong> Semantic HTML5, Modern CSS3 (Grid, Glassmorphism, Keyframe Animations), Vanilla JavaScript (Intersection Observer API, DOM Event Handling)[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Value Proposition</h4>
+                    <ul>
+                        <li><strong>Unique Value:</strong> Combines deep domain knowledge of AI history and infrastructure shifts (GPU parallelization, cloud compute, Transformer architectures) with clean, zero-dependency frontend engineering[cite: 1].</li>
+                        <li><strong>Relevance:</strong> Demonstrates to technical leaders that I understand the cyclical economics of AI hype versus infrastructure readiness, while possessing the UI engineering skills to communicate complex technical concepts clearly.</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Audience Customization</h4>
+                    <ul>
+                        <li><strong>Adaptations:</strong> Transformed a traditional static academic timeline assignment into a dark-mode, interactive web component with progressive disclosure (accordion cards) so technical reviewers can scan high-level eras or drill into specific catalysts on demand[cite: 1].</li>
+                        <li><strong>Relevance:</strong> Appeals to hiring managers and peer engineers who value interactive documentation, clean UI/UX execution, and awareness of hardware-software co-evolution[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Reflection & Feedback</h4>
+                    <ul>
+                        <li><strong>Significance:</strong> Connects theoretical AI breakthroughs (such as AlexNet in 2012 and the 2017 Transformer paper) directly to the underlying compute paradigms—Nvidia GPUs and cloud scaling—that made production deployment viable[cite: 1].</li>
+                        <li><strong>Lessons Learned:</strong> Historical AI winters were largely driven by mismatches between algorithmic ambition and available compute/hardware economics—a critical lesson when architecting modern enterprise AI systems[cite: 1].</li>
+                        <li><strong>Feedback & Revisions:</strong> Refined the initial static layout into an interactive accordion with smooth CSS Grid height transitions and auto-scroll centering after peer review noted that displaying all historical text simultaneously felt visually dense[cite: 1].</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rubric-section" style="margin-top: 1.5rem;">
+                <h4>References</h4>
+                <p>Turing, A. M. (1950). "Computing Machinery and Intelligence"[cite: 1] | Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). "ImageNet Classification with Deep Convolutional Neural Networks"[cite: 1] | Vaswani et al. (2017). "Attention Is All You Need"[cite: 1].</p>
             </div>
         </div>
     </article>
