@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolution of Artificial Intelligence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg-base: #050505;
+            --bg-surface: rgba(25, 25, 35, 0.6);
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --accent-1: #00f0ff; /* Neon Cyan */
+            --accent-2: #bc13fe; /* Neon Purple */
+            --accent-3: #ff0055; /* Neon Pink */
+            --line-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(188, 19, 254, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+            position: relative;
+        }
+
+        /* Central Glowing Line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            bottom: 100px;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, var(--accent-1), var(--accent-2), var(--accent-3), transparent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Timeline Item */
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            opacity: 0; /* For scroll animation */
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        /* Alternating sides */
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            transform: translateX(-50px);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            transform: translateX(50px);
+        }
+
+        /* Scroll Animation Activation */
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Center Dot */
+        .timeline-dot {
+            position: absolute;
+            top: 40px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--bg-base);
+            border: 4px solid var(--accent-1);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 15px var(--accent-1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; border-color: var(--accent-2); box-shadow: 0 0 15px var(--accent-2); }
+        .timeline-item:nth-child(3n) .timeline-dot { border-color: var(--accent-3); box-shadow: 0 0 15px var(--accent-3); }
+
+        /* Card Content */
+        .timeline-content {
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--line-color);
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .timeline-item:hover .timeline-content {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .timeline-item.active .timeline-content {
+            border-color: var(--accent-1);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+        }
+        .timeline-item:nth-child(even).active .timeline-content { border-color: var(--accent-2); box-shadow: 0 0 30px rgba(188, 19, 254, 0.15); }
+        .timeline-item:nth-child(3n).active .timeline-content { border-color: var(--accent-3); box-shadow: 0 0 30px rgba(255, 0, 85, 0.15); }
+
+        /* Header inside Card */
+        .timeline-header {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-header { align-items: flex-start; }
+        .timeline-item:nth-child(odd) .timeline-header { align-items: flex-end; }
+
+        .year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-1);
+            letter-spacing: 2px;
+        }
+        .timeline-item:nth-child(even) .year { color: var(--accent-2); }
+        .timeline-item:nth-child(3n) .year { color: var(--accent-3); }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Expanding Details (CSS Grid Trick for smooth auto-height) */
+        .details-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .timeline-item.active .details-wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        .details-inner {
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            text-align: left; /* Keep readable text aligned left */
+        }
+
+        .timeline-item.active .details-inner {
+            opacity: 1;
+            transform: translateY(0);
+            padding-top: 20px; /* Space between title and desc */
+            transition-delay: 0.2s; /* Wait for expansion to start fading in */
+        }
+
+        .details-inner p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Highlight specific terms in descriptions */
+        .highlight-cause { color: #ff7675; font-weight: 600; }
+        .highlight-impact { color: #74b9ff; font-weight: 600; }
+        .highlight-catalyst { color: #55efc4; font-weight: 600; }
+
+        /* Caret icon for interaction hint */
+        .caret {
+            font-size: 0.8rem;
+            transition: transform 0.4s ease;
+            opacity: 0.5;
+        }
+        .timeline-item.active .caret {
+            transform: rotate(180deg);
+        }
+
+        /* Keyframes */
+        @keyframes fadeInDown {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding: 20px 20px 20px 70px;
+            }
+            .timeline-item:nth-child(odd), 
+            .timeline-item:nth-child(even) {
+                left: 0;
+                text-align: left;
+                transform: translateX(30px);
+            }
+            .timeline-item.visible {
+                transform: translateX(0);
+            }
+            .timeline-dot {
+                left: 20px !important;
+                right: auto !important;
+            }
+            .timeline-item:nth-child(odd) .timeline-header,
+            .timeline-item:nth-child(even) .timeline-header {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>The Evolution of AI</h1>
+        <p class="subtitle">A journey through the milestones, winters, and breakthroughs that shaped Artificial Intelligence. Click any event to explore its historical context.</p>
+    </header>
+
+    <div class="timeline-container">
+        
+        <!-- 1950 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1950</span>
+                    <div class="title">The Turing Test <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>British mathematician Alan Turing publishes "Computing Machinery and Intelligence," introducing the "Imitation Game" (now known as the Turing Test). This milestone established the foundational question of AI: <em>Can machines think?</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1956 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1956</span>
+                    <div class="title">The Dartmouth Workshop <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>Organized by John McCarthy and Marvin Minsky, this summer research project officially coined the term "Artificial Intelligence." It is widely considered the founding event of the AI field as a distinct academic and technological discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1966 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1966</span>
+                    <div class="title">ELIZA <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>Joseph Weizenbaum at MIT creates ELIZA, one of the first natural language processing programs. By using simple pattern matching, it simulated a psychotherapist, proving that humans could form deep emotional attachments to machines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1974-1980 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1974-1980</span>
+                    <div class="title">The First AI Winter <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p><span class="highlight-cause">Cause:</span> Early promises failed to materialize due to a severe lack of processing power and data.</p>
+                        <br>
+                        <p><span class="highlight-impact">Impact:</span> Government funding (especially from DARPA) collapsed. AI research stalled dramatically, forcing researchers to shift their focus to smaller, more narrowly defined sub-fields to survive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1980s -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1980s</span>
+                    <div class="title">Expert Systems Boom <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>AI found widespread commercial success through "Expert Systems"—software programs designed to mimic the decision-making ability of human experts in specific, rules-heavy fields like medicine, chemistry, and finance, temporarily ending the first AI winter.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1987-1993 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1987-1993</span>
+                    <div class="title">The Second AI Winter <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p><span class="highlight-cause">Cause:</span> Dedicated, expensive AI hardware (like LISP machines) became abruptly obsolete as standard desktop computers from IBM and Apple became cheaper and more powerful.</p>
+                        <br>
+                        <p><span class="highlight-impact">Impact:</span> Corporate funding collapsed once again. The term "AI" became somewhat taboo in the tech industry, often replaced by terms like "machine learning" to secure funding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1997 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">1997</span>
+                    <div class="title">IBM Deep Blue <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>IBM's specialized supercomputer, Deep Blue, defeats reigning world chess champion Garry Kasparov. This was a massive public relations milestone, demonstrating that immense computational brute force could outmatch human intuition in highly complex, rules-based games.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">2012</span>
+                    <div class="title">The AlexNet Breakthrough <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>Researchers Geoffrey Hinton, Ilya Sutskever, and Alex Krizhevsky create AlexNet, a deep neural network that demolished the competition in the ImageNet computer vision contest.</p>
+                        <br>
+                        <p><span class="highlight-catalyst">Key catalyst:</span> Nvidia GPUs (Graphics Processing Units) proved uniquely capable of handling the massive parallel calculations needed to train neural networks rapidly, kicking off the modern deep learning revolution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">2015</span>
+                    <div class="title">Cloud Computing Era <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>Tech infrastructure companies like Amazon (AWS) and Google (GCP) began offering vast, scalable computing power over the cloud. Researchers no longer needed multi-million-dollar on-premise supercomputers; they could rent server space to train complex models, accelerating global AI research exponentially.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2017 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">2017</span>
+                    <div class="title">Transformer Architecture <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>Google researchers published the seminal "Attention Is All You Need" paper, introducing the Transformer architecture. By allowing models to weigh the importance of all words in a sentence simultaneously, this framework paved the exact path for modern Large Language Models (LLMs).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2022-Present -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <span class="year">2022-Present</span>
+                    <div class="title">Generative AI Boom <span class="caret">▼</span></div>
+                </div>
+                <div class="details-wrapper">
+                    <div class="details-inner">
+                        <p>OpenAI releases ChatGPT to the public, sparking a massive, global arms race in generative AI among tech giants like Google, Microsoft, and Meta. AI transitions from a backend research tool to a mainstream, daily consumer application, revolutionizing industries worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            // 1. Scroll Animations (Intersection Observer)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px', // Trigger slightly before the item hits the bottom
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: stop observing once it's visible so it doesn't animate out and in again
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // 2. Accordion Click Interaction
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Check if this item is already active
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other items (Strict accordion logic)
+                    timelineItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // If it wasn't active before, open it now
+                    if (!isActive) {
+                        this.classList.add('active');
+                        
+                        // Small UX enhancement: smoothly scroll the opened item into better view 
+                        // if it's too low on the screen after opening.
+                        setTimeout(() => {
+                            const rect = this.getBoundingClientRect();
+                            if(rect.bottom > window.innerHeight) {
+                                window.scrollBy({
+                                    top: rect.bottom - window.innerHeight + 20,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }, 500); // wait for CSS transition to finish
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
