@@ -64,6 +64,9 @@
             border-bottom: 1px solid var(--border);
             position: relative;
         }
+        .artifact-embed-wrapper.light-embed {
+            background: #f1f5f9;
+        }
         .artifact-embed-wrapper iframe {
             width: 100%;
             height: 520px;
@@ -82,8 +85,12 @@
         .rubric-section p { margin: 0; font-size: 0.95rem; }
         
         /* Download / Action Button */
+        .btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
         .btn-download { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; transition: background 0.2s; }
+        .btn-group .btn-download { margin-bottom: 0; }
         .btn-download:hover { background: #1d4ed8; color: white; text-decoration: none; }
+        .btn-secondary { background: #e2e8f0; color: var(--text-main); }
+        .btn-secondary:hover { background: #cbd5e1; color: var(--text-main); }
     </style>
 </head>
 <body>
@@ -229,43 +236,97 @@
             
             <a href="ai_timeline.html" class="btn-download" target="_blank" rel="noopener noreferrer">🚀 Launch Fullscreen Interactive Timeline</a>
             
-            <p><strong>Introduction:</strong> An interactive, web-based visualization mapping the foundational milestones, hardware catalysts, AI winters, and architectural breakthroughs from the 1950 Turing Test to modern Generative AI[cite: 1].</p>
+            <p><strong>Introduction:</strong> An interactive, web-based visualization mapping the foundational milestones, hardware catalysts, AI winters, and architectural breakthroughs from the 1950 Turing Test to modern Generative AI.</p>
             
             <div class="rubric-grid">
                 <div class="rubric-section">
                     <h4>Description & Process</h4>
                     <ul>
-                        <li><strong>Objective:</strong> Synthesize over seven decades of Artificial Intelligence history into an engaging, self-guided technical visualization highlighting how compute infrastructure enabled modern deep learning[cite: 1].</li>
-                        <li><strong>Process:</strong> Created individually. Curated 11 pivotal industry milestones—categorizing root causes, economic impacts, and hardware catalysts—and engineered a custom responsive web application featuring Intersection Observer scroll animations and accordion state transitions[cite: 1].</li>
-                        <li><strong>Tools:</strong> Semantic HTML5, Modern CSS3 (Grid, Glassmorphism, Keyframe Animations), Vanilla JavaScript (Intersection Observer API, DOM Event Handling)[cite: 1].</li>
+                        <li><strong>Objective:</strong> Synthesize over seven decades of Artificial Intelligence history into an engaging, self-guided technical visualization highlighting how compute infrastructure enabled modern deep learning.</li>
+                        <li><strong>Process:</strong> Created individually. Curated 11 pivotal industry milestones—categorizing root causes, economic impacts, and hardware catalysts—and engineered a custom responsive web application featuring Intersection Observer scroll animations and accordion state transitions.</li>
+                        <li><strong>Tools:</strong> Semantic HTML5, Modern CSS3 (Grid, Glassmorphism, Keyframe Animations), Vanilla JavaScript (Intersection Observer API, DOM Event Handling).</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Value Proposition</h4>
                     <ul>
-                        <li><strong>Unique Value:</strong> Combines deep domain knowledge of AI history and infrastructure shifts (GPU parallelization, cloud compute, Transformer architectures) with clean, zero-dependency frontend engineering[cite: 1].</li>
+                        <li><strong>Unique Value:</strong> Combines deep domain knowledge of AI history and infrastructure shifts (GPU parallelization, cloud compute, Transformer architectures) with clean, zero-dependency frontend engineering.</li>
                         <li><strong>Relevance:</strong> Demonstrates to technical leaders that I understand the cyclical economics of AI hype versus infrastructure readiness, while possessing the UI engineering skills to communicate complex technical concepts clearly.</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Audience Customization</h4>
                     <ul>
-                        <li><strong>Adaptations:</strong> Transformed a traditional static academic timeline assignment into a dark-mode, interactive web component with progressive disclosure (accordion cards) so technical reviewers can scan high-level eras or drill into specific catalysts on demand[cite: 1].</li>
-                        <li><strong>Relevance:</strong> Appeals to hiring managers and peer engineers who value interactive documentation, clean UI/UX execution, and awareness of hardware-software co-evolution[cite: 1].</li>
+                        <li><strong>Adaptations:</strong> Transformed a traditional static academic timeline assignment into a dark-mode, interactive web component with progressive disclosure (accordion cards) so technical reviewers can scan high-level eras or drill into specific catalysts on demand.</li>
+                        <li><strong>Relevance:</strong> Appeals to hiring managers and peer engineers who value interactive documentation, clean UI/UX execution, and awareness of hardware-software co-evolution.</li>
                     </ul>
                 </div>
                 <div class="rubric-section">
                     <h4>Reflection & Feedback</h4>
                     <ul>
-                        <li><strong>Significance:</strong> Connects theoretical AI breakthroughs (such as AlexNet in 2012 and the 2017 Transformer paper) directly to the underlying compute paradigms—Nvidia GPUs and cloud scaling—that made production deployment viable[cite: 1].</li>
-                        <li><strong>Lessons Learned:</strong> Historical AI winters were largely driven by mismatches between algorithmic ambition and available compute/hardware economics—a critical lesson when architecting modern enterprise AI systems[cite: 1].</li>
-                        <li><strong>Feedback & Revisions:</strong> Refined the initial static layout into an interactive accordion with smooth CSS Grid height transitions and auto-scroll centering after peer review noted that displaying all historical text simultaneously felt visually dense[cite: 1].</li>
+                        <li><strong>Significance:</strong> Connects theoretical AI breakthroughs (such as AlexNet in 2012 and the 2017 Transformer paper) directly to the underlying compute paradigms—Nvidia GPUs and cloud scaling—that made production deployment viable.</li>
+                        <li><strong>Lessons Learned:</strong> Historical AI winters were largely driven by mismatches between algorithmic ambition and available compute/hardware economics—a critical lesson when architecting modern enterprise AI systems.</li>
+                        <li><strong>Feedback & Revisions:</strong> Refined the initial static layout into an interactive accordion with smooth CSS Grid height transitions and auto-scroll centering after peer review noted that displaying all historical text simultaneously felt visually dense.</li>
                     </ul>
                 </div>
             </div>
             <div class="rubric-section" style="margin-top: 1.5rem;">
                 <h4>References</h4>
-                <p>Turing, A. M. (1950). "Computing Machinery and Intelligence"[cite: 1] | Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). "ImageNet Classification with Deep Convolutional Neural Networks"[cite: 1] | Vaswani et al. (2017). "Attention Is All You Need"[cite: 1].</p>
+                <p>Turing, A. M. (1950). "Computing Machinery and Intelligence" | Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). "ImageNet Classification with Deep Convolutional Neural Networks" | Vaswani et al. (2017). "Attention Is All You Need".</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- ARTIFACT 4: Supervised Learning Residency Presentation -->
+    <article class="artifact-card">
+        <div class="artifact-embed-wrapper light-embed">
+            <iframe src="Supervised_Learning_Wayfair_Presentation.pdf" title="Supervised Learning Residency Presentation" loading="lazy"></iframe>
+        </div>
+        <div class="artifact-content">
+            <h3>Supervised Learning Lifecycle &amp; Production Governance</h3>
+            
+            <div class="btn-group">
+                <a href="Supervised_Learning_Wayfair_Presentation.pdf" class="btn-download" target="_blank" rel="noopener noreferrer">📄 View Fullscreen Deck (.pdf)</a>
+                <a href="Supervised_Learning_Wayfair_With_Portfolio_Slide.pptx" class="btn-download btn-secondary" download>📥 Download Slides (.pptx)</a>
+            </div>
+            
+            <p><strong>Introduction:</strong> A 17-slide technical residency presentation examining the end-to-end supervised learning lifecycle, model failure modes, post-deployment governance, and industry production cases (including Wayfair's Predicted Winners system and HTML/CSS/JS portfolio classification).</p>
+            
+            <div class="rubric-grid">
+                <div class="rubric-section">
+                    <h4>Description &amp; Process</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> Translate supervised machine learning mechanics—classification, regression, train/validation/test splits, and evaluation metrics—into an actionable production governance framework.</li>
+                        <li><strong>Process:</strong> Co-developed during the IWU AIML-500 residency with Srikanth Nankena and Sairam Yedupati. I specifically authored and presented Stages 04 and 05 covering data labeling pitfalls, spurious correlations, class imbalance ("the 99% accuracy trap"), concept drift monitoring, and real-world DOM-based website classification.</li>
+                        <li><strong>Tools:</strong> Supervised Classification &amp; Regression, Precision/Recall &amp; MAE Evaluation, Concept Drift Monitoring, HTML/CSS/JS Feature Extraction, Slide Design[cite: 2].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Value Proposition</h4>
+                    <ul>
+                        <li><strong>Unique Value:</strong> Demonstrates cross-functional technical communication and production MLOps maturity—proving that model deployment is an ongoing monitoring lifecycle rather than a one-time build[cite: 2].</li>
+                        <li><strong>Relevance:</strong> Shows engineering managers and product leads that I can align technical trade-offs (such as precision vs. recall and human-in-the-loop overrides) directly with measurable business outcomes[cite: 2].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Audience Customization</h4>
+                    <ul>
+                        <li><strong>Adaptations:</strong> Replaced dense mathematical notation with intuitive visual analogies (such as the 99% accuracy recall trap and fashion concept drift) paired with a concrete enterprise rollout checklist and Wayfair's production product-scoring case study[cite: 2].</li>
+                        <li><strong>Relevance:</strong> Bridges the communication gap between engineering teams and non-technical stakeholders, enabling clear executive buy-in for ML pilots[cite: 2].</li>
+                    </ul>
+                </div>
+                <div class="rubric-section">
+                    <h4>Reflection &amp; Feedback</h4>
+                    <ul>
+                        <li><strong>Significance:</strong> Highlights how supervised models fail silently in production when input distributions shift or when teams optimize for headline accuracy on imbalanced datasets[cite: 2].</li>
+                        <li><strong>Lessons Learned:</strong> High headline accuracy can mask complete failure on critical edge cases (0% recall on rare classes), making error auditing and post-launch drift monitoring essential[cite: 2].</li>
+                        <li><strong>Feedback &amp; Revisions:</strong> Based on residency feedback requesting a tangible engineering tie-in, I added a real-world portfolio classification slide demonstrating how HTML semantics, CSS grid layouts, and JavaScript behaviors act as structured features for supervised website detection[cite: 2].</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rubric-section" style="margin-top: 1.5rem;">
+                <h4>References</h4>
+                <p>James et al. (2021), <em>An Introduction to Statistical Learning</em> | Sculley et al. (2015), "Hidden Technical Debt in Machine Learning Systems" (NeurIPS) | Wayfair Tech Blog (2023), "How Wayfair Uses Predicted Winners Models"[cite: 2].</p>
             </div>
         </div>
     </article>
